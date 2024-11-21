@@ -1,3 +1,7 @@
+/*
+  20/11/2024
+ */
+
 package br.com.lima.screenmatch.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
