@@ -1,4 +1,11 @@
 package br.com.lima.screenmatch.model;
 
-public record DadosTemprada() {
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record DadosTemprada(@JsonAlias("Season") Integer numero,
+                            @JsonAlias("Epidodes") List<DadosEpisodio> episodios) {
 }
