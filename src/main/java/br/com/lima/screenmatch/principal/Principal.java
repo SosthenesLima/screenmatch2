@@ -1,8 +1,12 @@
 package br.com.lima.screenmatch.principal;
 
 import br.com.lima.screenmatch.model.DadosSerie;
+import br.com.lima.screenmatch.model.DadosTemporada;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -22,5 +26,15 @@ public class Principal {
         var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") +"&season=" + API_KEY);
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
         System.out.println(dados);
+
+        List<DadosTemporada> tempradas = new ArrayList<>();
+
+		for ( int i = 1; i<= dados.totalTemporadas(); i++){
+			json = consumo.obterDados("https://omdbapi.com/?t=gilmore+girls&season=" + i + "&apikey=6585022c");
+			DadosTemporada dadosTemprada = conversor.obterDados(json, DadosTemporada.class);
+			tempradas.add(dadosTemprada);
+	}
+		tempradas.forEach(System.out::println);
+
     }
 }
