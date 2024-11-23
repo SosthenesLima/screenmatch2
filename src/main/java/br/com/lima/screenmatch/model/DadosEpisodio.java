@@ -1,7 +1,9 @@
 package br.com.lima.screenmatch.model;
 
-public record DadosEpisodio(String titulo,
-                            Integer numero,
-                            String avaliacao,
-                            String dataLacamento) {
+import com.fasterxml.jackson.annotation.JsonAlias;
+
+public record DadosEpisodio(@JsonAlias("Title") String titulo,
+                           @JsonAlias("Episode") Integer numero,
+                            @JsonAlias("imdbRating") String avaliacao,
+                            @JsonAlias("Released") String dataLacamento) {
 }
