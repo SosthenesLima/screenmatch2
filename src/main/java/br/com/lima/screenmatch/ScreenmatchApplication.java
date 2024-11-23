@@ -2,11 +2,15 @@ package br.com.lima.screenmatch;
 
 import br.com.lima.screenmatch.model.DadosEpisodio;
 import br.com.lima.screenmatch.model.DadosSerie;
+import br.com.lima.screenmatch.model.DadosTemprada;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
@@ -28,8 +32,13 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 		System.out.println(dadosEpisodio);
 
+		List<DadosTemprada> tempradas = new ArrayList<>();
+
 		for ( int i = 1; i<= dados.totalTempadas(); i++){
 			json = consumoApi.obterDados("https://omdbapi.com/?t=gilmore+girls&season=" + i + "&apikey=6585022c");
+			DadosTemprada dadosTemprada = conversor.obterDados(json, DadosTemprada.class);
+			tempradas.add(dadosTemprada);
 		}
+		tempradas.forEach(System.out::println);
 	}
 }
