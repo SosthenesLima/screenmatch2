@@ -1,3 +1,7 @@
+/*
+ By Sósthenes Oliveira Lima
+ Palmas-TO, 23/11/2024 - Sábado
+ */
 package br.com.lima.screenmatch.principal;
 
 import br.com.lima.screenmatch.model.DadosEpisodio;
@@ -7,6 +11,7 @@ import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,6 +50,10 @@ public class Principal {
        // }
 
         tempradas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+
+        List<String> nomes = Arrays.asList("Sósthenes", "Sandra", "Catherine", "Yonnara");
+
+
 
     }
 }
