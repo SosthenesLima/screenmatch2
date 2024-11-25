@@ -27,7 +27,7 @@ public class Principal {
     private final String API_KEY = "&apikey=e4c92d6d";
 
     public void exibeMenu(){
-        System.out.println("Digite o nome da série para a busca");
+       /* System.out.println("Digite o nome da série para a busca");
         var nomeSerie = leitura.nextLine();
         var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") +"&season=" + API_KEY);
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
@@ -50,9 +50,15 @@ public class Principal {
        // }
 
         tempradas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
+*/
+        List<String> nomes = Arrays.asList("Sósthenes", "Sandra", "Catherine", "Yonnara", "Jacinones");
 
-        List<String> nomes = Arrays.asList("Sósthenes", "Sandra", "Catherine", "Yonnara");
-
+        nomes.stream()
+                .sorted()
+                .limit(4)
+                .filter(n -> n.endsWith("s"))
+                .map(n -> n.toUpperCase())
+                .forEach(System.out::println);
 
 
     }
