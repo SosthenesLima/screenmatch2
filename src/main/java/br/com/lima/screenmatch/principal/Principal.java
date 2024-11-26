@@ -10,10 +10,7 @@ import br.com.lima.screenmatch.model.DadosTemporada;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -67,8 +64,12 @@ public class Principal {
                 .collect(Collectors.toList());
 
 
-        dadosEpisodios.add(new DadosEpisodio("teste", 3, "10","2020-01-01"));
-        dadosEpisodios.forEach(System.out::println);
+        System.out.println("\n Top 5 episódios");
+        dadosEpisodios.stream()
+                        .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
+                        .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
+                        .limit(5)
+                        .forEach(System.out::println);
 
     }
 }
