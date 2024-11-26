@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
 
@@ -27,7 +28,7 @@ public class Principal {
     private final String API_KEY = "&apikey=e4c92d6d";
 
     public void exibeMenu(){
-       /* System.out.println("Digite o nome da série para a busca");
+        System.out.println("Digite o nome da série para a busca");
         var nomeSerie = leitura.nextLine();
         var json = consumo.obterDados(ENDERECO + nomeSerie.replace(" ", "+") +"&season=" + API_KEY);
         DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
@@ -50,8 +51,8 @@ public class Principal {
        // }
 
         tempradas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
-*/
-        List<String> nomes = Arrays.asList("Sósthenes", "Sandra", "Catherine", "Yonnara", "Jacinones");
+
+        /* List<String> nomes = Arrays.asList("Sósthenes", "Sandra", "Catherine", "Yonnara", "Jacinones");
 
         nomes.stream()
                 .sorted()
@@ -59,7 +60,15 @@ public class Principal {
                 .filter(n -> n.endsWith("s"))
                 .map(n -> n.toUpperCase())
                 .forEach(System.out::println);
+       */
 
+        List<DadosEpisodio> dadosEpisodios = tempradas.stream()
+                .flatMap(t -> t.episodios().stream())
+                .collect(Collectors.toList());
+
+
+        dadosEpisodios.add(new DadosEpisodio("teste", 3, "10","2020-01-01"));
+        dadosEpisodios.forEach(System.out::println);
 
     }
 }
