@@ -7,6 +7,7 @@ package br.com.lima.screenmatch.principal;
 import br.com.lima.screenmatch.model.DadosEpisodio;
 import br.com.lima.screenmatch.model.DadosSerie;
 import br.com.lima.screenmatch.model.DadosTemporada;
+import br.com.lima.screenmatch.model.Episodios;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 
@@ -70,6 +71,8 @@ public class Principal {
                         .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
                         .limit(5)
                         .forEach(System.out::println);
+
+        List<Episodios> episodios
 
     }
 }
