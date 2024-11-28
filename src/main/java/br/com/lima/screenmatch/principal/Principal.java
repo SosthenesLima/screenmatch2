@@ -72,7 +72,10 @@ public class Principal {
                         .limit(5)
                         .forEach(System.out::println);
 
-        List<Episodios> episodios
+        List<Episodios> episodios = tempradas.stream()
+                .flatMap(t -> t.episodios().stream()
+                        .map(d -> new Episodios())
+                )
 
     }
 }
