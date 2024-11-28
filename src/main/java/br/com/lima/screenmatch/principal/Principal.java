@@ -11,6 +11,9 @@ import br.com.lima.screenmatch.model.Episodios;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -82,6 +85,18 @@ public class Principal {
         System.out.println("Apartir de que ano você deseja ver os episódios? ");
         var ano = leitura.nextInt();
         leitura.nextLine();
+
+        LocalDate dataBusca = LocalDate.of(ano, 1, 1);
+
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        episodios.stream()
+                .filter(e -> e.getDataLancamento() != null && e.getDataLancamento().isAfter(dataBusca))
+                .forEach(e -> System.out.println(
+                    "Temporada:   " + e.getTemporada() +
+                            "    Episódio:  " + e.getTitulo() +
+                            "  Data Lançamento:  " + e.getDataLancamento().format(formatador)
+
+                ));
 
     }
 }
