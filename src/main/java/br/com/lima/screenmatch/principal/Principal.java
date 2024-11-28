@@ -79,5 +79,9 @@ public class Principal {
 
         episodios.forEach(System.out::println);
 
+        System.out.println("Apartir de que ano você deseja ver os episódios? ");
+        var ano = leitura.nextInt();
+        leitura.nextLine();
+
     }
 }
