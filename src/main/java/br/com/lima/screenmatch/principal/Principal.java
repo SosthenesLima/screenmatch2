@@ -74,8 +74,10 @@ public class Principal {
 
         List<Episodios> episodios = tempradas.stream()
                 .flatMap(t -> t.episodios().stream()
-                        .map(d -> new Episodios())
-                )
+                        .map(d -> new Episodios(t.numero(), d))
+                ).collect(Collectors.toList());
+
+        episodios.forEach(System.out::println);
 
     }
 }
