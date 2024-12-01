@@ -115,5 +115,9 @@ public class Principal {
 
                 ));
      */
+
+        Map<Integer, Double avaliacoesPorTemporada = episodios.stream()
+                .collect(Collectors.groupingBy(Episodios::getTemporada,
+                        Collectors.averagingDouble()));
     }
 }
