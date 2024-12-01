@@ -80,14 +80,21 @@ public class Principal {
                         .peek(e -> System.out.println( "Mapeamento " + e))
                         .forEach(System.out::println);
 
-        /* List<Episodios> episodios = tempradas.stream()
+        List<Episodios> episodios = tempradas.stream()
                 .flatMap(t -> t.episodios().stream()
                         .map(d -> new Episodios(t.numero(), d))
                 ).collect(Collectors.toList());
 
         episodios.forEach(System.out::println);
 
-        System.out.println("Apartir de que ano você deseja ver os episódios? ");
+        System.out.println("Digite um trecho do Título do episódio");
+        var trechoTitulo = leitura.nextLine();
+        episodios.stream()
+                .filter(e -> e.getTitulo().contains(trechoTitulo))
+                .findFirst();
+
+
+       /* System.out.println("Apartir de que ano você deseja ver os episódios? ");
         var ano = leitura.nextInt();
         leitura.nextLine();
 
