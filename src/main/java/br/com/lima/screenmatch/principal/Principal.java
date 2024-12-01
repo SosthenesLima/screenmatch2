@@ -121,5 +121,9 @@ public class Principal {
                 .collect(Collectors.groupingBy(Episodios::getTemporada,
                         Collectors.averagingDouble(Episodios::getAvaliacao)));
         System.out.println(avaliacoesPorTemporada);
+
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.summarizingDouble(Episodios::getAvaliacao));
     }
 }
