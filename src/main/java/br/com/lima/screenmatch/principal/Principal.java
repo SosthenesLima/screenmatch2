@@ -89,10 +89,15 @@ public class Principal {
 
         System.out.println("Digite um trecho do Título do episódio");
         var trechoTitulo = leitura.nextLine();
-        episodios.stream()
+        Optional<Episodios> episodioBuscado = episodios.stream()
                 .filter(e -> e.getTitulo().contains(trechoTitulo))
                 .findFirst();
-
+        if(episodioBuscado.isPresent()){
+            System.out.println("Episódio encontrado!");
+            System.out.println("Temporada: " + episodioBuscado.get().getTemporada());
+        } else {
+            System.out.println("Episódio não encontrado!");
+        }
 
        /* System.out.println("Apartir de que ano você deseja ver os episódios? ");
         var ano = leitura.nextInt();
