@@ -1,6 +1,7 @@
 /*
  By Sósthenes Oliveira Lima
  Palmas-TO, 23/11/2024 - Sábado
+ Finalizado no dia 02/12/2024
  */
 package br.com.lima.screenmatch.principal;
 
