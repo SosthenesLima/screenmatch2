@@ -1,3 +1,6 @@
+/*
+
+ */
 package br.com.lima.screenmatch.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
