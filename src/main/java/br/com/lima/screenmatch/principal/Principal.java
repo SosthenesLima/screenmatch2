@@ -5,10 +5,7 @@
  */
 package br.com.lima.screenmatch.principal;
 
-import br.com.lima.screenmatch.model.DadosEpisodio;
-import br.com.lima.screenmatch.model.DadosSerie;
-import br.com.lima.screenmatch.model.DadosTemporada;
-import br.com.lima.screenmatch.model.Episodios;
+import br.com.lima.screenmatch.model.*;
 import br.com.lima.screenmatch.service.ConsumoApi;
 import br.com.lima.screenmatch.service.ConverteDados;
 
@@ -88,7 +85,15 @@ public class Principal {
     }
 
     private void listarSeriesBuscadas() {
-        dadosSeries.forEach(System.out::println);
+
+        List<Serie> series  = new ArrayList<>();
+        series = dadosSeries.stream()
+                        .map(d -> new Serie(d))
+                        .collect(Collectors.toList());
+
+        series.stream()
+                .sorted(Comparator.comparing(Serie::getGenero))
+                .forEach(System.out::println);
     }
 }
 
