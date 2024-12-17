@@ -86,6 +86,7 @@ public class Principal {
 
     private void listarSeriesBuscadas() {
 
+
         List<Serie> series  = new ArrayList<>();
         series = dadosSeries.stream()
                         .map(d -> new Serie(d))
