@@ -1,11 +1,6 @@
 package br.com.lima.screenmatch.model;
 
 import br.com.lima.screenmatch.service.ConsultaChatGPT;
-import com.fasterxml.jackson.annotation.JsonAlias;
-import jdk.jfr.Category;
-
-import java.util.Optional;
-import java.util.OptionalDouble;
 
 public class Serie {
 
@@ -20,11 +15,15 @@ public class Serie {
     public Serie(DadosSerie dadosSerie) {
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
-        this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
+        this.avaliacao = dadosSerie.avaliacao() != null ? Double.valueOf(dadosSerie.avaliacao()) : 0.0;
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = ConsultaChatGPT.obterTraducao(dadosSerie.sinopse()).trim();
+        this.sinopse = dadosSerie.sinopse(); // Tradução será feita em outro lugar
+    }
+
+    public void traduzirSinopse(ConsultaChatGPT chatGPTService) {
+        this.sinopse = chatGPTService.obterTraducao(this.sinopse).trim();
     }
 
     public String getTitulo() {
@@ -85,13 +84,14 @@ public class Serie {
 
     @Override
     public String toString() {
-        return
-                "genero=" + genero +
-                ", titulo='" + titulo + '\'' +
+        return "Serie{" +
+                "titulo='" + titulo + '\'' +
                 ", totalTemporadas=" + totalTemporadas +
                 ", avaliacao=" + avaliacao +
+                ", genero=" + genero +
                 ", atores='" + atores + '\'' +
                 ", poster='" + poster + '\'' +
-                ", sinopse'" + sinopse + '\'';
+                ", sinopse='" + sinopse + '\'' +
+                '}';
     }
 }
