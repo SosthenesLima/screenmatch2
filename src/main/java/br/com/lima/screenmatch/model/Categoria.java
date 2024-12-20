@@ -1,3 +1,7 @@
+/*
+  By Sósthenes Oliveira lima
+ */
+
 package br.com.lima.screenmatch.model;
 
 public enum Categoria {
