@@ -1,3 +1,7 @@
+/*
+  Bu Sósthenes Oliveira Lima
+ */
+
 package br.com.lima.screenmatch.service;
 
 import java.io.IOException;
