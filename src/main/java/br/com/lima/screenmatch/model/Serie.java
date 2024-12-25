@@ -1,7 +1,12 @@
 package br.com.lima.screenmatch.model;
 
 import br.com.lima.screenmatch.service.ConsultaChatGPT;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@Entity
+@Table(name = "series")
 public class Serie {
 
     private String titulo;
