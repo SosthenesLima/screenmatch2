@@ -1,17 +1,20 @@
 package br.com.lima.screenmatch.model;
 
 import br.com.lima.screenmatch.service.ConsultaChatGPT;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "series")
 public class Serie {
-
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true)
     private String titulo;
     private Integer totalTemporadas;
     private Double avaliacao;
+    @Enumerated(EnumType.STRING)
     private Categoria genero;
     private String atores;
     private String poster;
@@ -29,6 +32,14 @@ public class Serie {
 
     public void traduzirSinopse(ConsultaChatGPT chatGPTService) {
         this.sinopse = chatGPTService.obterTraducao(this.sinopse).trim();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitulo() {
