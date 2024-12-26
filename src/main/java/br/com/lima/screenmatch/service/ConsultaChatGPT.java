@@ -19,7 +19,7 @@ public class ConsultaChatGPT {
         OpenAiService service = new OpenAiService(apiKey);
 
         CompletionRequest requisicao = CompletionRequest.builder()
-                .model("gpt-4o-2024-08-06") // Utilize gpt-4-turbo se gpt-4 falhar
+                .model("gpt-4o") // Utilize gpt-4-turbo se gpt-4 falhar
                 .prompt("Traduza para o português o texto: " + texto)
                 .maxTokens(1000)
                 .temperature(0.7)
