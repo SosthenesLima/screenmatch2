@@ -5,6 +5,7 @@
 package br.com.lima.screenmatch.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.persistence.OneToMany;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -17,6 +18,11 @@ public class Episodios {
 
    private Double avaliacao;
     private LocalDate dataLancamento;
+
+    @OneToMany
+    private Serie serie;
+
+
 
     public Episodios(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
         this.temporada = numeroTemporada;
