@@ -24,7 +24,7 @@ public class Episodios {
    private Double avaliacao;
     private LocalDate dataLancamento;
 
-    @OneToMany
+    @ManyToOne
     private Serie serie;
 
 
