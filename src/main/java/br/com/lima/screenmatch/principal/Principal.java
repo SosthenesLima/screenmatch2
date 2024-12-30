@@ -97,9 +97,11 @@ public class Principal {
         //DadosSerie dadosSerie = getDadosSerie();
         var nomeSerie = leitura.nextLine();
 
-        Optional<Serie> serie = series.stream()
-                .filter(s -> s.getTitulo().toLowerCase().contains(nomeSerie.toLowerCase()))
-                .findFirst();
+        Optional<Serie> serie = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
+
+                //Optional<Serie> serie = series.stream()
+                //.filter(s -> s.getTitulo().toLowerCase().contains(nomeSerie.toLowerCase()))
+                //.findFirst();
 
         if (serie.isPresent()) {
 
@@ -142,6 +144,17 @@ public class Principal {
     }
 
     private void buscarSeriePorTitulo() {
+        System.out.println("Escolha uma Série pelo nome: ");
+        var nomeSerie = leitura.nextLine();
+        Optional<Serie> serieBuscada = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
+
+        if (serieBuscada.isPresent()) {
+            System.out.println("Dados da série: " + serieBuscada.get());
+
+        } else {
+            System.out.println("Série não encontrada");
+
+        }
     }
 }
 
