@@ -96,16 +96,22 @@ public class Principal {
                 .filter(s -> s.getTitulo().toLowerCase().contains(nomeSerie.toLowerCase()))
                 .findFirst();
 
-        List<DadosTemporada> temporadas = new ArrayList<>();
+        if (serie.isPresent()) {
 
-        for (int i = 1; i <= dadosSerie.totalTemporadas(); i++) {
-            var json = consumo.obterDados(ENDERECO + dadosSerie.titulo().replace(" ", "+") + "&season=" + i + API_KEY);
-            DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
-            temporadas.add(dadosTemporada);
+
+            var serieEncontrada = serie.get();
+            List<DadosTemporada> temporadas = new ArrayList<>();
+
+            for (int i = 1; i <= dadosSerie.totalTemporadas(); i++) {
+                var json = consumo.obterDados(ENDERECO + dadosSerie.titulo().replace(" ", "+") + "&season=" + i + API_KEY);
+                DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
+                temporadas.add(dadosTemporada);
+            }
+            temporadas.forEach(System.out::println);
+          } else {
+            System.out.println("Séries não encontrada!");
         }
-        temporadas.forEach(System.out::println);
     }
-
     private void listarSeriesBuscadas() {
        // List<Serie> series = repositorio.findAll();
 
