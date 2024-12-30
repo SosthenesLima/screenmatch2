@@ -29,6 +29,9 @@ public class Principal {
 
     private SerieRepository repositorio;
 
+    private List<Serie> series  = new ArrayList<>();
+
+
     public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;
     }
@@ -84,7 +87,15 @@ public class Principal {
     }
 
     private void buscarEpisodioPorSerie() {
-        DadosSerie dadosSerie = getDadosSerie();
+        listarSeriesBuscadas();
+        System.out.println("Escolha uma Série pelo nome: ");
+        //DadosSerie dadosSerie = getDadosSerie();
+        var nomeSerie = leitura.nextLine();
+
+        Optional<Serie> serie = series.stream()
+                .filter(s -> s.getTitulo().toLowerCase().contains(nomeSerie.toLowerCase()))
+                .findFirst();
+
         List<DadosTemporada> temporadas = new ArrayList<>();
 
         for (int i = 1; i <= dadosSerie.totalTemporadas(); i++) {
@@ -96,7 +107,7 @@ public class Principal {
     }
 
     private void listarSeriesBuscadas() {
-        List<Serie> series = repositorio.findAll();
+       // List<Serie> series = repositorio.findAll();
 
         //List<Serie> series  = new ArrayList<>();
         //series = repositorio.findAll();
@@ -104,7 +115,7 @@ public class Principal {
         //series = dadosSeries.stream()
                         //.map(d -> new Serie(d))
                        // .collect(Collectors.toList());
-
+        series = repositorio.findAll();
         series.stream()
                 .sorted(Comparator.comparing(Serie::getGenero))
                 .forEach(System.out::println);
