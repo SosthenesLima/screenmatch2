@@ -27,6 +27,8 @@ public class Episodios {
     @ManyToOne
     private Serie serie;
 
+    public Episodios() {}
+
 
 
     public Episodios(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
