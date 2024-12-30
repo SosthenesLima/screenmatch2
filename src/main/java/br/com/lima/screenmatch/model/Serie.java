@@ -55,6 +55,9 @@ public class Serie {
     }
 
     public void setEpisodios(List<Episodios> episodios) {
+
+        // Ajustando a chave estrangeira
+        episodios.forEach(e -> e.setSerie(this));
         this.episodios = episodios;
     }
 
