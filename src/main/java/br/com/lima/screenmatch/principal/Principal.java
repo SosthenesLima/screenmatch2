@@ -44,6 +44,7 @@ public class Principal {
                     2 - Buscar episódios
                     3 - Listar séries buscadas
                     4 - Buscar série por título
+                    5 - Buscar série por ator
                     0 - Sair                                 
                     """;
 
@@ -64,7 +65,10 @@ public class Principal {
                 case 4:
                     buscarSeriePorTitulo();
                     break;
-                case 0:
+                case 5:
+                    buscarSeriesPorAtor();
+                    break;
+                    case 0:
                     System.out.println("Saindo...");
                     break;
                 default:
@@ -155,6 +159,10 @@ public class Principal {
             System.out.println("Série não encontrada");
 
         }
+    }
+
+    private void buscarSeriesPorAtor() {
+        List<Serie> series = repositorio.findAll();
     }
 }
 
