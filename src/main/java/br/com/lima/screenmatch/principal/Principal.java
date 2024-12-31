@@ -162,7 +162,10 @@ public class Principal {
     }
 
     private void buscarSeriesPorAtor() {
-        List<Serie> series = repositorio.findAll();
+        System.out.println("Qual é o nome para buscar?");
+        var  nomeAtor = leitura.nextLine();
+        List<Serie> seriesEncontradas = repositorio.findByAtoresContainingIgnoreCase(nomeAtor);
+        System.out.println(seriesEncontradas);
     }
 }
 
