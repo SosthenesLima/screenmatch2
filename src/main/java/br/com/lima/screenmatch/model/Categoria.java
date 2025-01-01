@@ -12,14 +12,15 @@ public enum Categoria {
     CRIME("Crime", "Crime"),
     AVENTURA("Aventure", "Aventura"),
     TERROR("Terror", "Terror"),
-    UNKNOWN("Unknown");
+    UNKNOWN("Unknown", "Desconhecido");
 
     private String categoriaOmdb;
 
     private String catetoriaPortugues;
 
-    Categoria(String categoriaOmdb) {
+    Categoria(String categoriaOmdb, String catetoriaPortugues) {
         this.categoriaOmdb = categoriaOmdb;
+        this.catetoriaPortugues = catetoriaPortugues;
     }
     public static Categoria fromString(String text) {
         for (Categoria categoria : Categoria.values()) {
@@ -31,4 +32,13 @@ public enum Categoria {
         //throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
     }
 
+    public static Categoria fromPortugues(String text) {
+        for (Categoria categoria : Categoria.values()) {
+            if (categoria.catetoriaPortugues.equalsIgnoreCase(text)) {
+                return categoria;
+            }
+        }
+        return Categoria.UNKNOWN;
+        //throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
+    }
 }
