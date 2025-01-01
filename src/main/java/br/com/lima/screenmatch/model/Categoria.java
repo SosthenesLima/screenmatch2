@@ -5,16 +5,18 @@
 package br.com.lima.screenmatch.model;
 
 public enum Categoria {
-    ACAO("Action"),
-    ROMANCE("Romance"),
-    COMEDIA("Comedy"),
-    DRAMA("Drama"),
-    CRIME("Crime"),
-    AVENTURA("Aventura"),
-    TERROR("Terror"),
+    ACAO("Action", "Ação"),
+    ROMANCE("Romance", "Romance"),
+    COMEDIA("Comedy", "Comédia"),
+    DRAMA("Drama", "Drama"),
+    CRIME("Crime", "Crime"),
+    AVENTURA("Aventure", "Aventura"),
+    TERROR("Terror", "Terror"),
     UNKNOWN("Unknown");
 
     private String categoriaOmdb;
+
+    private String catetoriaPortugues;
 
     Categoria(String categoriaOmdb) {
         this.categoriaOmdb = categoriaOmdb;
