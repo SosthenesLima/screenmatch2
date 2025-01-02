@@ -27,6 +27,7 @@ public enum Categoria {
             if (categoria.categoriaOmdb.equalsIgnoreCase(text)) {
                 return categoria;
             }
+            throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
         }
         return Categoria.UNKNOWN;
         //throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
@@ -38,7 +39,9 @@ public enum Categoria {
                 return categoria;
             }
         }
-        return Categoria.UNKNOWN;
+
+        throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
+        //return Categoria.UNKNOWN;
         //throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
     }
 }
