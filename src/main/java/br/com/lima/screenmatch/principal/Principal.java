@@ -219,7 +219,9 @@ public class Principal {
     }
 
     private void buscarEpisodioPorTrecho(){
-
+        System.out.println("Qual o nome episódio para a busca?");
+        var trechoEpisodio = leitura.nextLine();
+        List<Episodios> episodiosEncontrados = repositorio.episodiosPorTrecho(trechoEpisodio);
     }
 }
 
