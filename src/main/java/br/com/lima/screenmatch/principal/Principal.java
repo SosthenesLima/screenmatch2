@@ -222,7 +222,10 @@ public class Principal {
         System.out.println("Qual o nome episódio para a busca?");
         var trechoEpisodio = leitura.nextLine();
         List<Episodios> episodiosEncontrados = repositorio.episodiosPorTrecho(trechoEpisodio);
-        episodiosEncontrados.forEach(System.out::println);
+        episodiosEncontrados.forEach(e ->
+                System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
+                        e.getSerie().getTitulo(), e.getTemporada(),
+                        e.getNumeroEpisodio(), e.getTitulo()));
     }
 }
 
