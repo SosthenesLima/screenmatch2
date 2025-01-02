@@ -48,6 +48,7 @@ public class Principal {
                     6 - Top 5 Séries
                     7 - Buscar séries por categoria
                     8 - Filtrar séries
+                    9 - Buscar episódio por trecho
                     0 - Sair                                 
                     """;
 
@@ -79,6 +80,9 @@ public class Principal {
                    break;
                 case 8:
                     filtrarSeriesPorTemporadaEAvaliacao();
+                    break;
+                case 9:
+                    buscarEpisodioPorTrecho();
                     break;
                     case 0:
                     System.out.println("Saindo...");
@@ -208,10 +212,14 @@ public class Principal {
         System.out.println("Com avaliação a partir de que valor? ");
         var avaliacao = leitura.nextDouble();
         leitura.nextLine();
-        List<Serie> filtroSeries = repositorio.seriesPorTemporadaEAvaliacoa();
+        List<Serie> filtroSeries = repositorio.seriesPorTemporadaEAvaliacoa(totalTemporadas, avaliacao);
         System.out.println("*** Séries filtradas ***");
         filtroSeries.forEach(s ->
                 System.out.println(s.getTitulo() + "  - avaliação: " + s.getAvaliacao()));
+    }
+
+    private void buscarEpisodioPorTrecho(){
+
     }
 }
 
