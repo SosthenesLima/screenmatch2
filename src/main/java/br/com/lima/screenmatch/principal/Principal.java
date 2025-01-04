@@ -50,6 +50,7 @@ public class Principal {
                     7 - Buscar séries por categoria
                     8 - Filtrar séries
                     9 - Buscar episódio por trecho
+                    10 - Top episódios por Séries
                     0 - Sair                                 
                     """;
 
@@ -84,6 +85,9 @@ public class Principal {
                     break;
                 case 9:
                     buscarEpisodioPorTrecho();
+                    break;
+                case 10:
+                    topEpisodiosPorSerie();
                     break;
                     case 0:
                     System.out.println("Saindo...");
