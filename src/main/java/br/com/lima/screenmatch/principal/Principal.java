@@ -32,6 +32,8 @@ public class Principal {
 
     private List<Serie> series  = new ArrayList<>();
 
+    private Optional<Serie> serieBusca;
+
 
     public Principal(SerieRepository repositorio) {
         this.repositorio = repositorio;
@@ -171,10 +173,10 @@ public class Principal {
     private void buscarSeriePorTitulo() {
         System.out.println("Escolha uma Série pelo nome: ");
         var nomeSerie = leitura.nextLine();
-        Optional<Serie> serieBuscada = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
+        serieBusca = repositorio.findByTituloContainingIgnoreCase(nomeSerie);
 
-        if (serieBuscada.isPresent()) {
-            System.out.println("Dados da série: " + serieBuscada.get());
+        if (serieBusca.isPresent()) {
+            System.out.println("Dados da série: " + serieBusca.get());
 
         } else {
             System.out.println("Série não encontrada");
