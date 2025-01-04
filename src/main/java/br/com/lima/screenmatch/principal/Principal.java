@@ -240,6 +240,10 @@ public class Principal {
         if(serieBusca.isPresent()){
             Serie serie = serieBusca.get();
             List<Episodios> topEpisodios = repositorio.topEpisodiosPorSerie(serie);
+            topEpisodios.forEach(e ->
+                    System.out.printf("Série: %s Temporada %s - Episódio %s - %s\n",
+                            e.getSerie().getTitulo(), e.getTemporada(),
+                            e.getNumeroEpisodio(), e.getTitulo()));
         }
     };
 
