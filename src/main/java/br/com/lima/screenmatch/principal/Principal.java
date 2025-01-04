@@ -232,6 +232,11 @@ public class Principal {
                         e.getSerie().getTitulo(), e.getTemporada(),
                         e.getNumeroEpisodio(), e.getTitulo()));
     }
+
+    private void topEpisodiosPorSerie(){
+        buscarSeriePorTitulo();
+    };
+
 }
 
 /*
