@@ -237,6 +237,10 @@ public class Principal {
 
     private void topEpisodiosPorSerie(){
         buscarSeriePorTitulo();
+        if(serieBusca.isPresent()){
+            Serie serie = serieBusca.get();
+            List<Episodios> topEpisodios = repositorio.topEpisodiosPorSerie(serie);
+        }
     };
 
 }

@@ -26,4 +26,6 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
 
    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE e.titulo ILIKE %:trechoEpisodio%")
     List<Episodios> episodiosPorTrecho(String trechoEpisodio);
+
+    List<Episodios> topEpisodiosPorSerie(Serie serie);
 }
