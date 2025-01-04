@@ -1,5 +1,6 @@
 /*
   By Sósthenes Oliveira lima
+  03/01/2025
  */
 
 package br.com.lima.screenmatch.model;
