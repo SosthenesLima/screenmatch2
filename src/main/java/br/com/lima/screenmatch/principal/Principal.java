@@ -251,6 +251,16 @@ public class Principal {
         }
     };
 
+    private void buscarEpisodiosDepoisDeUmaData(){
+        buscarSeriePorTitulo();
+        if(serieBusca.isPresent()){
+            System.out.println("Digite o ano limite de lançamento");
+            var anoLancamento = leitura.nextInt();
+            leitura.nextLine();
+
+        }
+    }
+
 }
 
 /*
