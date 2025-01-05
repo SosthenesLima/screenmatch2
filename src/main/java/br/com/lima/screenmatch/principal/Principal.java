@@ -259,8 +259,8 @@ public class Principal {
             var anoLancamento = leitura.nextInt();
             leitura.nextLine();
 
-            List<Episodios> episodios = repositorio.episodiosPorSerieeAno(serie, anoLancamento);
-
+            List<Episodios> episodiosAno = repositorio.episodiosPorSerieeAno(serie, anoLancamento);
+            episodiosAno.forEach(System.out::println);
         }
     }
 
