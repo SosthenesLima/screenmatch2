@@ -254,9 +254,12 @@ public class Principal {
     private void buscarEpisodiosDepoisDeUmaData(){
         buscarSeriePorTitulo();
         if(serieBusca.isPresent()){
+            Serie serie = serieBusca.get();
             System.out.println("Digite o ano limite de lançamento");
             var anoLancamento = leitura.nextInt();
             leitura.nextLine();
+
+            List<Episodios> episodios = repositorio.episodiosPorSerieeAno(serie, anoLancamento);
 
         }
     }
