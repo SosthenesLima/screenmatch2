@@ -6,30 +6,24 @@ package br.com.lima.screenmatch.service;
 
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
-@Service
 public class ConsultaChatGPT {
+    public static String obterTraducao(String texto) {
+        OpenAiService service = new OpenAiService("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");
 
-    @Value("${openai.api.key}")
-    private String apiKey;
-
-    public String obterTraducao(String texto) {
-        OpenAiService service = new OpenAiService(apiKey);
 
         CompletionRequest requisicao = CompletionRequest.builder()
-                .model("gpt-4o") // Utilize gpt-4-turbo se gpt-4 falhar
-                .prompt("Traduza para o português o texto: " + texto)
+                .model("gpt-4")
+                .prompt("traduza para o português o texto: " + texto)
                 .maxTokens(1000)
                 .temperature(0.7)
                 .build();
 
+
         var resposta = service.createCompletion(requisicao);
-        return resposta.getChoices().get(0).getText().trim();
+        return resposta.getChoices().get(0).getText();
     }
 }
-
 
 
 
