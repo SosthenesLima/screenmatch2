@@ -1,6 +1,6 @@
 package br.com.lima.screenmatch.model;
 
-import br.com.lima.screenmatch.service.ConsultaChatGPT;
+import br.com.lima.screenmatch.service.traducao.ConsultaMyMemory;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -35,12 +35,13 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = dadosSerie.sinopse(); // Tradução será feita em outro lugar
+        //this.sinopse = dadosSerie.sinopse(); // Tradução será feita em outro lugar
+        this.sinopse = ConsultaMyMemory.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
-    public void traduzirSinopse(ConsultaChatGPT chatGPTService) {
-        this.sinopse = chatGPTService.obterTraducao(this.sinopse).trim();
-    }
+    //public void traduzirSinopse(ConsultaChatGPT chatGPTService) {
+       // this.sinopse = chatGPTService.obterTraducao(this.sinopse).trim();
+   // }
 
     public Long getId() {
         return id;
