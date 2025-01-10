@@ -1,5 +1,6 @@
 package br.com.lima.screenmatch.controller;
 
+import br.com.lima.screenmatch.dto.SerieDTO;
 import br.com.lima.screenmatch.model.Serie;
 import br.com.lima.screenmatch.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,9 @@ public class SerieController {
     private SerieRepository repositorio;
 
     @GetMapping("/series")
-    public List<Serie> obterSeries() {
-        return repositorio.findAll();
+    public List<SerieDTO> obterSeries() {
+        return repositorio.findAll()
+                .stream()
+                .map(s -> SerieDTO(s.getId()));
     }
 }
