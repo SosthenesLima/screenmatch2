@@ -23,4 +23,9 @@ public class SerieController {
                 .map(s ->new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(), s.getSinopse()))
                 .collect(Collectors.toList());
     }
+
+   // @GetMapping("/inicio")
+   // public String retornarInicio() {
+        //return "Bem Vindo ao ScreeMatch - 2025";
+   // }
 }
