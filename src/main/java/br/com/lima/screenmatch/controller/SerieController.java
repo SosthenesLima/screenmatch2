@@ -18,6 +18,12 @@ public class SerieController {
     public List<SerieDTO> obterSeries() {
         return servico.obterTodasAsSeries();
 
+        @GetMapping("/series/top5")
+        public List<SerieDTO> obterTop5Series(){
+          return servico.obterTop5Series();
+
+        }
+
         // @GetMapping("/inicio")
         // public String retornarInicio() {
         //return "Bem Vindo ao ScreeMatch - 2025";
