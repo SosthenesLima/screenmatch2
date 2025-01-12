@@ -23,6 +23,10 @@ public class SerieService {
     }
 
     public List<SerieDTO> obterTop5Series() {
+        return repositorio.findTop5ByOrderByAvaliacaoDesc()
+                .stream()
+                .map(s ->new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(), s.getSinopse()))
+                .collect(Collectors.toList());
 
     }
 }
