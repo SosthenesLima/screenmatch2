@@ -33,7 +33,7 @@ public class SerieController {
         // }
     }
 
-    @GetMapping("/lacamentos")
+    @GetMapping("/lancamentos")
     public List<SerieDTO> obterLancamentos() {
         return servico.obterLancamentos();
 
