@@ -32,4 +32,10 @@ public class SerieController {
         //return "Bem Vindo ao ScreeMatch - 2025";
         // }
     }
+
+    @GetMapping("/lacamentos")
+    public List<SerieDTO> obterLancamentos() {
+        return servico.obterLancamentos();
+
+    }
 }
