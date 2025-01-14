@@ -1,5 +1,6 @@
 package br.com.lima.screenmatch.service;
 
+import br.com.lima.screenmatch.dto.EpisodioDTO;
 import br.com.lima.screenmatch.dto.SerieDTO;
 import br.com.lima.screenmatch.model.Serie;
 import br.com.lima.screenmatch.repository.SerieRepository;
@@ -45,5 +46,8 @@ public class SerieService {
             return new SerieDTO(s.getId(), s.getTitulo(), s.getTotalTemporadas(), s.getAvaliacao(), s.getGenero(), s.getAtores(), s.getPoster(), s.getSinopse());
         }
         return null;
+    }
+
+    public List<EpisodioDTO> obterTodasTemporadas(Long id) {
     }
 }
