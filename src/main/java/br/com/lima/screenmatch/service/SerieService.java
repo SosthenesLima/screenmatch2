@@ -2,6 +2,7 @@ package br.com.lima.screenmatch.service;
 
 import br.com.lima.screenmatch.dto.EpisodioDTO;
 import br.com.lima.screenmatch.dto.SerieDTO;
+import br.com.lima.screenmatch.model.Categoria;
 import br.com.lima.screenmatch.model.Episodios;
 import br.com.lima.screenmatch.model.Serie;
 import br.com.lima.screenmatch.repository.SerieRepository;
@@ -66,5 +67,10 @@ public class SerieService {
                 .stream()
                 .map(e -> new EpisodioDTO(e.getTemporada(), e.getNumeroEpisodio(), e.getTitulo()))
                 .collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obterSeriesPorCategoria(String nomeGenero) {
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        return converteDados(repositorio.findByGenero(categoria));
     }
 }

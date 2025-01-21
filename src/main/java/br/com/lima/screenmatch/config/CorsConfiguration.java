@@ -1,3 +1,7 @@
+/*
+By Sósthenes Oliveira liMA
+ */
+
 package br.com.lima.screenmatch.config;
 
 import org.springframework.context.annotation.Configuration;
