@@ -1,3 +1,7 @@
+/*
+  By Sósthenes Oliveira Lima
+ */
+
 package br.com.lima.screenmatch;
 import br.com.lima.screenmatch.principal.Principal;
 import br.com.lima.screenmatch.repository.SerieRepository;
