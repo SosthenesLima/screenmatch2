@@ -1,3 +1,7 @@
+/*
+ By Sósthenes Oliveira Lima
+ */
+
 package br.com.lima.screenmatch.model;
 
 import br.com.lima.screenmatch.service.traducao.ConsultaMyMemory;
