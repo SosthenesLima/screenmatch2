@@ -1,3 +1,8 @@
+/*
+  By Sósthenes Oliveira Lima
+
+ */
+
 package br.com.lima.screenmatch.repository;
 
 import br.com.lima.screenmatch.model.Categoria;
