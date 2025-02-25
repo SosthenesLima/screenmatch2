@@ -1,6 +1,6 @@
 /*
   By Sósthenes Oliveira Lima
-
+  Palmas -TO 25/02/2025.
  */
 
 package br.com.lima.screenmatch.repository;
