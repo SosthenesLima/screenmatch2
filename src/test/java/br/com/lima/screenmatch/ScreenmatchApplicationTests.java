@@ -1,3 +1,8 @@
+/*
+  By Sósthenes Oliveira Lima
+
+ */
+
 package br.com.lima.screenmatch;
 
 import org.junit.jupiter.api.Test;

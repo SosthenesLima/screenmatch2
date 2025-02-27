@@ -3,6 +3,7 @@
   Palmas -TO 25/02/2025.
  */
 
+
 package br.com.lima.screenmatch.repository;
 
 import br.com.lima.screenmatch.model.Categoria;
