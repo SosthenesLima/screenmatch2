@@ -1,3 +1,8 @@
+/*
+ By Sósthenes Lima
+
+ */
+
 package br.com.lima.screenmatch.service.traducao;
 
 import br.com.lima.screenmatch.service.ConsumoApi;
