@@ -1,3 +1,8 @@
+/*
+ By Sósthenes Oliveira Lima
+
+ */
+
 package br.com.lima.screenmatch.service.traducao;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
