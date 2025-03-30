@@ -1,6 +1,6 @@
 /*
   By Sósthenes Oliveira Lima
-  Paslmas-to
+  Paslmas-to 2025
  */
 
 package br.com.lima.screenmatch.service.traducao;
