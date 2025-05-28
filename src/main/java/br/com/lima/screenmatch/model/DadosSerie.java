@@ -1,6 +1,7 @@
 /*
 By Sósthenes Oliveira Lima
   20/11/2024
+  Palmas
  */
 
 package br.com.lima.screenmatch.model;
