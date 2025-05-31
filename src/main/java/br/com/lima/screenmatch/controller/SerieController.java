@@ -1,6 +1,6 @@
 /*
   By Sósthenes Oliveira Lima
-  Palmas- 2025
+  Palmas-TO  2025
  */
 package br.com.lima.screenmatch.controller;
 import br.com.lima.screenmatch.dto.EpisodioDTO;
